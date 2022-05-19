@@ -11,13 +11,16 @@
   <body>
     <div class="screen-1" id="screen-1">
       <h1 class="main-heading">Tic Tac Toe</h1>
-      <button class="play-button">Play</button>
+      <button class="play-button" id="play-button">Play</button>
     </div>
 
     <div class="screen-2">
       <h1 class="game-heading">Tic Tac Toe</h1>
       <div class="playing-area">
-        <div class="turn-info">Player X's turn</div>
+        <div class="navigation">
+          <div class="turn-info" id="turn-info">Player X's turn</div>
+          <button class="restart-button" id="restart-button">Restart</button>
+        </div>
         <div class="board">
           <div class="cell"></div>
           <div class="cell"></div>
@@ -29,11 +32,19 @@
           <div class="cell"></div>
           <div class="cell"></div>
         </div>
-        <button class="restart-button">Restart</button>
+        <div class="score" id="score">
+          <div class="points" id="X-score"><bold>X</bold><br />0</div>
+          <div class="points" id="Draw-score">Draw<br />0</div>
+          <div class="points" id="O-score"><bold>O</bold><br />0</div>
+        </div>
       </div>
-    <div class="screen-3" hidden>
-      <div winning-text>text</div>
-      <button id="play-again-button">Play again</button>
+    </div>
+
+    <div class="screen-3" id="screen-3">
+      <div class="winning-text" id="winning-text">X has won!</div>
+      <button class="play-again-button" id="play-again-button">
+        Play again
+      </button>
     </div>
   </body>
 </html>
