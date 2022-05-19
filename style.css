@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: sans-serif;
+  user-select: none;
 }
 
 html {
@@ -38,12 +39,17 @@ body {
 
 .play-button {
   border: none;
-  margin-top: 20px;
+  background-color: bisque;
+  margin-top: 200px;
   margin-bottom: 20px;
-  padding: 5px;
+  padding: 40px 75px;
   cursor: pointer;
-  border-radius: 7px;
-  font-size: 20px;
+  border-radius: 30px;
+  font-size: 70px;
+}
+
+.play-button:hover {
+  background-color: rgb(199, 183, 163);
 }
 
 .screen-2 {
@@ -52,7 +58,7 @@ body {
   flex-direction: column;
   height: 100%;
   width: 100%;
-  background-color: rgb(163, 158, 127);
+  background-color: rgb(219, 119, 53);
   position: absolute;
   z-index: 0;
 }
@@ -60,18 +66,24 @@ body {
 .game-heading {
   font-size: 100px;
   margin-top: 40px;
-  margin-bottom: 80px;
+  margin-bottom: 65px;
 }
 
 .playing-area {
-  height: 640px;
+  height: 660px;
   width: 600px;
   display: flex;
   flex-direction: column;
   align-items: center;
-
   background-color: rgb(107, 201, 201);
   border-radius: 25px;
+}
+
+.navigation {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
 }
 
 .turn-info {
@@ -82,13 +94,28 @@ body {
   margin-bottom: 30px;
 }
 
+.restart-button {
+  border: none;
+  margin-top: 25px;
+  margin-bottom: 20px;
+  margin-right: 32px;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 7px;
+  font-size: 20px;
+}
+
+.restart-button:hover {
+  background-color: rgb(148, 148, 148);
+}
+
 .board {
-  width: 480px;
-  height: 480px;
+  width: 470px;
+  height: 470px;
   background-color: aqua;
   display: grid;
   grid-template-columns: repeat(3, auto);
-  grid-gap: 15px;
+  grid-gap: 10px;
 }
 
 .cell {
@@ -96,22 +123,64 @@ body {
   height: 150px;
   background-color: rgb(107, 201, 201);
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 120px;
+  font-weight: bold;
 }
 
-.cell:hover {
+.cell.selected {
+  cursor: auto;
+}
+
+.cell:not(.selected):hover {
   background-color: rgba(139, 139, 139, 0.74);
 }
 
-.restart-button {
-  border: none;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding: 5px;
-  cursor: pointer;
-  border-radius: 7px;
-  font-size: 20px;
+.cell.won {
+  background-color: rgb(54, 207, 54);
 }
 
-.restart-button:hover {
+.score {
+  margin-top: 30px;
+  width: 30%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.points {
+  text-align: center;
+  font-size: 25px;
+}
+
+.screen-3 {
+  visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.87);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.winning-text {
+  color: white;
+  font-size: 90px;
+}
+
+.play-again-button {
+  border: none;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  padding: 20px 30px;
+  cursor: pointer;
+  border-radius: 12px;
+  font-size: 40px;
+}
+
+.play-again-button:hover {
   background-color: rgb(148, 148, 148);
 }
