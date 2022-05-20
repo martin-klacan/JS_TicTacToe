@@ -35,12 +35,21 @@ cells.forEach((cell, index) => {
   cell.addEventListener("click", () => handleClick(cell, index));
 });
 
-playButton.addEventListener("click", startGame);
+playButton.addEventListener("click", play);
 restartButton.addEventListener("click", startGame);
-playAgainButton.addEventListener("click", startGame);
+playAgainButton.addEventListener("click", playAgain);
+
+function play() {
+  screen1.classList.add("fadeAway");
+  startGame();
+}
+
+function playAgain() {
+  screen3.classList.add("fadeAway");
+  startGame();
+}
 
 function startGame() {
-  screen1.style.visibility = "hidden";
   screen3.style.visibility = "hidden";
   gameActive = true;
   board = ["", "", "", "", "", "", "", "", ""];
@@ -133,6 +142,8 @@ function updateTurnInfoText() {
 }
 
 function winningScreen(currentPlayerOrDraw) {
+  screen3.classList.remove("fadeAway");
+  screen3.classList.add("appear");
   if (currentPlayerOrDraw === "Draw") {
     winningText.innerHTML = "Draw!";
   } else {

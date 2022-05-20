@@ -2,8 +2,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
   user-select: none;
+  color: #2f5a69;
 }
 
 html {
@@ -19,37 +20,57 @@ body {
 }
 
 .screen-1 {
-  visibility: hidden;
-  background-color: rgb(133, 121, 96);
+  background-color: #c5675a;
   position: absolute;
-  width: 55%;
-  height: 87%;
+  width: 70%;
+  height: 90%;
   border-radius: 30px;
   z-index: 1;
   display: flex;
   align-items: center;
   flex-direction: column;
+  box-shadow: 6px 6px 16px 4px rgba(0, 0, 0, 0.2),
+    0 8px 22px 0 rgba(0, 0, 0, 0.19);
+}
+
+.fadeAway {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 0.3s, opacity 0.3s linear;
 }
 
 .main-heading {
   margin-top: 50px;
-  font-size: 80px;
-  color: rgb(41, 41, 41);
+  font-size: 180px;
+  background-image: linear-gradient(
+    45deg,
+    #0b2f7e,
+    rgb(146, 53, 223),
+    rgb(248, 33, 33)
+  );
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
 }
 
 .play-button {
   border: none;
-  background-color: bisque;
+  background-color: #f5eae0;
   margin-top: 200px;
   margin-bottom: 20px;
-  padding: 40px 75px;
+  padding: 35px 90px;
   cursor: pointer;
   border-radius: 30px;
-  font-size: 70px;
+  font-size: 80px;
+  color: #361141;
+  transition-duration: 0.15s;
+  box-shadow: 5px 10px 20px 5px rgba(0, 0, 0, 0.25);
 }
 
 .play-button:hover {
-  background-color: rgb(199, 183, 163);
+  color: #f5eae0;
+  background-color: #361141;
+  transform: translate(0, -8px);
 }
 
 .screen-2 {
@@ -58,25 +79,36 @@ body {
   flex-direction: column;
   height: 100%;
   width: 100%;
-  background-color: rgb(219, 119, 53);
+  background-color: #e0a458;
   position: absolute;
   z-index: 0;
 }
 
 .game-heading {
-  font-size: 100px;
-  margin-top: 40px;
-  margin-bottom: 65px;
+  font-size: 120px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  background-image: linear-gradient(
+    45deg,
+    #0b2f7e,
+    rgb(146, 53, 223),
+    rgb(248, 33, 33)
+  );
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
 }
 
 .playing-area {
-  height: 660px;
-  width: 600px;
+  height: 685px;
+  width: 610px;
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgb(107, 201, 201);
+  background-color: #8de1e2;
   border-radius: 25px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 8px 22px 0 rgba(0, 0, 0, 0.2);
 }
 
 .navigation {
@@ -84,35 +116,46 @@ body {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
+  background-color: #b6eaeb;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  margin-bottom: 25px;
 }
 
 .turn-info {
   align-self: flex-start;
-  font-size: 20px;
+  font-size: 25px;
   margin-left: 50px;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 
 .restart-button {
   border: none;
-  margin-top: 25px;
+  margin-top: 20px;
   margin-bottom: 20px;
-  margin-right: 32px;
-  padding: 10px 15px;
+  margin-right: 40px;
+  padding: 8px 15px;
   cursor: pointer;
   border-radius: 7px;
   font-size: 20px;
+  background-color: #f5eae0;
+  color: #431551;
+  /*transition: transform ease 125ms;*/
+  transition-duration: 0.1s;
+  box-shadow: 2px 2px 8px 2px rgba(0, 0, 0, 0.25);
 }
 
 .restart-button:hover {
-  background-color: rgb(148, 148, 148);
+  color: #f5eae0;
+  background-color: #431551;
+  transform: translate(0, -3px);
 }
 
 .board {
   width: 470px;
   height: 470px;
-  background-color: aqua;
+  background-color: #326273;
   display: grid;
   grid-template-columns: repeat(3, auto);
   grid-gap: 10px;
@@ -121,13 +164,14 @@ body {
 .cell {
   width: 150px;
   height: 150px;
-  background-color: rgb(107, 201, 201);
+  background-color: #8de1e2;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 120px;
   font-weight: bold;
+  color: #431551;
 }
 
 .cell.selected {
@@ -143,7 +187,7 @@ body {
 }
 
 .score {
-  margin-top: 30px;
+  margin-top: 20px;
   width: 30%;
   display: flex;
   justify-content: space-around;
@@ -159,7 +203,7 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.87);
+  background-color: rgba(0, 0, 0, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -167,7 +211,7 @@ body {
 }
 
 .winning-text {
-  color: white;
+  color: #f5eae0;
   font-size: 90px;
 }
 
@@ -179,8 +223,15 @@ body {
   cursor: pointer;
   border-radius: 12px;
   font-size: 40px;
+  color: #361141;
+  background-color: #f5eae0;
+  /*transition: transform ease 150ms;*/
+  transition-duration: 0.15s;
+  box-shadow: 5px 10px 20px 5px rgba(0, 0, 0, 0.25);
 }
 
 .play-again-button:hover {
-  background-color: rgb(148, 148, 148);
+  color: #f5eae0;
+  background-color: #361141;
+  transform: translate(0, -7px);
 }
